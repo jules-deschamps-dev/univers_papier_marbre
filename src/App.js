@@ -13,8 +13,8 @@ const App = () => {
     var liste = document.cookie.split(";");
     for (var i = 0; i < liste.length; i++) {
       var c = liste[i];
-      while (c.charAt(0) == " ") c = c.substring(1, c.length);
-      if (c.indexOf(nom) == 0) return c.substring(nom.length, c.length);
+      while (c.charAt(0) === " ") c = c.substring(1, c.length);
+      if (c.indexOf(nom) === 0) return c.substring(nom.length, c.length);
     }
     return null;
   }
