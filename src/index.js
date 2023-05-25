@@ -9,7 +9,6 @@ import { legacy_createStore as createStore } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./redux/reducers";
 import { Provider } from "react-redux";
-import { authentication } from "ldap-authentication";
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
 
