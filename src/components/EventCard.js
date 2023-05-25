@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { dateParser, timestampParser } from "../assets/Utils";
 import { deleteEvent, getEvents } from "../redux/actions/events.action";
 import { UidContext } from "./AppContext";
@@ -17,25 +17,16 @@ const EventCard = ({ event }) => {
   return (
     <>
       <li key={event.id} className="eventsCard">
-        <a href={path} target="_blank" className="w-fit m-auto">
+        <a href={path} target="_blank" rel="noreferrer" className="w-fit m-auto">
           <h2 className="hover:underline">{event.title}</h2>
         </a>
         <span>
-          {dateParser(event.begin)} - {dateParser(event.end)} <br />-
-          {timestampParser(event.end)} -
+          {dateParser(event.begin)} - {dateParser(event.end)} <br />-{timestampParser(event.end)} -
         </span>
         {event.placeLink ? (
-          <a
-            href={event.placeLink}
-            target="_blank"
-            className=" flex w-fit m-auto"
-          >
+          <a href={event.placeLink} target="_blank" rel="noreferrer" className=" flex w-fit m-auto">
             <div className="flex flex-col text-center justify-center translate-y-2 hover:underline">
-              <img
-                src="./img/icons/location-dot.svg"
-                alt={event.title}
-                className="h-4"
-              />
+              <img src="./img/icons/location-dot.svg" alt={event.title} className="h-4" />
               <h3> {event.place}</h3>
               <h4> - {event.city} - </h4>
             </div>
@@ -45,12 +36,7 @@ const EventCard = ({ event }) => {
         {uid ? (
           <div className="relative m-auto flex">
             <img src="./img/icons/pen-circle.svg" alt="" className="h-8" />
-            <img
-              src="./img/icons/circle-trash.svg"
-              alt=""
-              onClick={handleDelete}
-              className="h-8"
-            />
+            <img src="./img/icons/circle-trash.svg" alt="" onClick={handleDelete} className="h-8" />
           </div>
         ) : null}
       </li>

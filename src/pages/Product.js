@@ -11,10 +11,9 @@ const Product = (product) => {
   const dispatch = useDispatch();
   const post = useSelector((state) => state.postReducer);
   const uid = useContext(UidContext);
-  let id = window.location.hash;
   useEffect(() => {
     if (loadPost) {
-      dispatch(getOnePost(id));
+      dispatch(getOnePost(window.location.hash));
       setLoadPost(false);
     }
   }, [loadPost, dispatch]);
@@ -40,8 +39,7 @@ const Product = (product) => {
               <br />
               <br />
               <p className="italic ty-4">
-                En raison du caractère unique des oeuvres chaque commande se
-                fait en{" "}
+                En raison du caractère unique des oeuvres chaque commande se fait en{" "}
                 <a href="mailto:5rg@live.fr" className="underline">
                   contactant le vendeur.
                 </a>

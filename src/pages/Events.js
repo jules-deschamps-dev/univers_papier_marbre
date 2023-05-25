@@ -23,14 +23,6 @@ const Events = () => {
     }
   }, [loadPost, dispatch]);
 
-  function fixLoaderPosition() {
-    const navHeight = document.querySelector("nav").offsetHeight;
-    const loader = document.getElementById("loader-bloc");
-
-    loader.style.height = "calc(100vh" + "-" + navHeight + "px)";
-    console.log("ok");
-  }
-
   return (
     <>
       {uid ? <AdminPannel /> : null}
@@ -44,27 +36,17 @@ const Events = () => {
       ) : (
         !isEmpty(events[0]) &&
         events
-          .filter(
-            (element) =>
-              Date.parse(element.begin) < Date.now() &&
-              Date.parse(element.end) > Date.now()
-          )
+          .filter((element) => Date.parse(element.begin) < Date.now() && Date.parse(element.end) > Date.now())
           .slice(0, 1)
           .map((el) => {
             return (
               <>
                 <div className="align-center"></div>
-                <span className="text-2xl w-fit flex mt-8 m-auto text-center italic underline">
-                  Actuellement sur {el.city}
-                </span>
+                <span className="text-2xl w-fit flex mt-8 m-auto text-center italic underline">Actuellement sur {el.city}</span>
                 <ul className="flex flex-col flex-wrap m-auto mt-8 pl-10 pr-10 pb-20">
                   {!isEmpty(events[0]) &&
                     events
-                      .filter(
-                        (element) =>
-                          Date.parse(element.begin) < Date.now() &&
-                          Date.parse(element.end) > Date.now()
-                      )
+                      .filter((element) => Date.parse(element.begin) < Date.now() && Date.parse(element.end) > Date.now())
                       .slice(0)
                       .reverse()
                       .map((post) => {
@@ -88,15 +70,11 @@ const Events = () => {
           .map(() => {
             return (
               <>
-                <span className="text-2xl w-fit flex mt-8 m-auto text-center italic underline">
-                  À venir
-                </span>
+                <span className="text-2xl w-fit flex mt-8 m-auto text-center italic underline">À venir</span>
                 <ul className="flex flex-col flex-wrap m-auto mt-8 pl-10 pr-10 pb-20">
                   {!isEmpty(events[0]) &&
                     events
-                      .filter(
-                        (element) => Date.parse(element.begin) > Date.now()
-                      )
+                      .filter((element) => Date.parse(element.begin) > Date.now())
                       .slice(0)
                       .reverse()
                       .map((post) => {
@@ -119,9 +97,7 @@ const Events = () => {
           .map(() => {
             return (
               <>
-                <span className="text-2xl w-fit flex mt-8 m-auto text-center italic underline">
-                  Evenements passés
-                </span>
+                <span className="text-2xl w-fit flex mt-8 m-auto text-center italic underline">Evenements passés</span>
                 <ul className="flex flex-col flex-wrap m-auto mt-8 pl-10 pr-10 pb-20">
                   {!isEmpty(events[0]) &&
                     events

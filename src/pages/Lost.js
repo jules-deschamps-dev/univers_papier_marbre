@@ -1,5 +1,4 @@
 import React from "react";
-import { gohome } from "../assets/Utils";
 
 const Lost = () => {
   setTimeout(function () {
