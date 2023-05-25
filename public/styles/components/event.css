@@ -1,0 +1,14 @@
+.eventsCard{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80vw;
+  margin: auto;
+  padding-bottom: 32px;
+  border-bottom: 1px solid black;
+  margin-bottom: 4rem;
+}
+
+.eventsCard h2{
+  font-size: 2rem;
+}

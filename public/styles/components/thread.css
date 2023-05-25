@@ -1,0 +1,89 @@
+
+
+#thread ul .card{
+  position: relative;
+  display: flex;
+  aspect-ratio: 1 / 1 ;
+  flex-direction: column;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+#thread ul .card .card-content{
+  position: relative;
+  align-items: center;
+  display: flex;
+  max-width: 100%;
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: rgb(200, 200, 200) 2px 2px 10px;
+  animation: show-cards .8s;
+}
+
+#thread ul .card .card-content:hover{
+  box-shadow: rgb(170, 170, 170) 2px 2px 40px;
+}
+
+#thread ul .card .card-content:hover .thumb-text-container{
+  height: 100%;
+  transition: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in;
+  background-color: rgba(255, 255, 255, .8);
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+#thread ul .card .card-content .thumb-text-container{
+  padding: 5%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  transform: perspective(1500px) rotateX(90deg);
+  perspective-origin: top;
+  transform-origin: top;
+}
+#thread ul .card .card-content h2{
+  font-size: 2em;
+  font-family: popins;
+}
+
+#thread ul .card .card-content .description{
+  display: flex;
+  font-family: lato;
+}
+
+#categorie-list li:hover span{
+  text-decoration: underline;
+}
+
+#categorie-list li img{
+  transition: all 240ms;
+  z-index: -1;
+}
+
+#categorie-list li:hover img{
+  transform: rotate(12deg);
+  scale: 1.2;
+}
+
+#print-all-article-button{
+  background-image: url("../../img/paint-cover-black.jpg");
+}
+
+#print-all-article-button:hover{
+  text-decoration: underline;
+}
+
+@keyframes show-cards {
+  from {
+    opacity: .2;
+    transform: translateY(15px) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}

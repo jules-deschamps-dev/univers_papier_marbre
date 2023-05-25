@@ -1,0 +1,242 @@
+
+html{
+  overflow-x: hidden;
+}
+body{
+  margin: 0;
+}
+nav{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: max-content;
+  border-bottom: solid black 2px;
+  box-shadow: 0px 0px 8px black;
+  background-image: url("../../img/paint-cover-black.jpg");
+  background-color: black;
+  z-index: -1;
+  color: white;
+  justify-items: center;
+  align-items: center;
+}
+
+
+
+
+nav ul{
+  display: flex;
+  filter:  drop-shadow(0px 0px 8px black);
+  width: 100vw;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+
+
+h1{
+  letter-spacing: .1rem;
+  font-size: 3.5rem!important;
+  text-align: center;
+  font-weight: 700;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  font-family: magilio;
+  font-weight: bold;
+  height: max-content;
+  filter:  drop-shadow(1px 1px 2px black);
+  display: flex;
+  padding-left: 4.5rem;
+  padding-right: 4.5rem;
+  padding-top: .75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 640px) {
+  h1{
+    letter-spacing: inherit;
+    font-size: 2.5rem!important;
+  }
+}
+
+
+.branch-container{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  width: 60vw;
+  height: 60vh;
+  border-radius: 1vw;
+  overflow: hidden;
+  background-color: red;
+}
+.branch{
+  display: flex;
+  width: 30vw;
+  height: 100%;
+  background-color: white;
+  filter: grayscale(40%);
+}
+
+.branch:hover{
+  flex: 2;
+  filter: none;
+}
+  
+
+
+.craft-branch{
+  background-size: cover;
+  color: white;
+  background-color: black;
+  /*background-image: url("./dist/img/craft-cover.jpg");*/
+}
+.paint-branch{
+  background-size: cover;
+  /*background-image: url("./dist/img/paint-cover.jpg");*/
+}
+
+.container-404{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: tintinMaj;
+}
+
+/* FORMS */
+.little-arrow{
+  position: absolute;
+  left: 4px;
+  display: flex;
+  width: 25px;
+  height: 25px;
+  border: 7px solid white;
+  border-style: solid none none solid;
+  transform: rotate(-45deg);
+  animation-name: little-arrow-head-genesis;
+  animation-duration: 1100ms;
+  margin: 2px;
+}
+.little-arrow::before{
+  content: "";
+  translate: 0 -5px;
+  width: 35px;
+  height: 7px;
+  background: white;
+  transform: rotate(45deg) translate(0, 7.5px);
+  animation-name: little-arrow-stick-genesis;
+  animation-duration: 1100ms;
+  transition: all 280ms;
+}
+#arrow-container:hover .little-arrow::before{
+  transition-duration: 300ms;
+  transform: rotate(-180deg) translate(0, 2px);
+}
+
+@keyframes little-arrow-stick-genesis{
+  from{
+    transform: rotate(-180deg) translate(0, 2px);}
+  to{
+    transform: rotate(45deg) translate(0, 7.5px);
+  }
+}
+@keyframes little-arrow-head-genesis{
+  from{
+    transform: rotate(-180deg)
+  }
+  to{
+    transform: rotate(-45deg) 
+  }
+}
+
+
+.admin-pannel-container{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 90px;
+  background-color: rgba(255, 255, 255,.9);
+  border-top: solid 4px darkred;
+  z-index: 2;
+}
+
+
+.admin-pannel-container .admin-pannel{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  left: calc(50vw - 220px / 2);
+  top: 10px;
+  padding: 4px;
+  width: 220px;
+  height: 40px;
+  background-color: white;
+  box-sizing: content-box;
+  border: dotted 8px darkred;
+  border-radius: 40px;
+}
+.admin-pannel-container  .admin-pannel img{
+  display: flex;
+  margin: auto;
+  height: 95%;
+}
+
+.crud-post{
+  display: flex;
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  right: -20px;
+  top: -20px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255,.9);
+  border: dotted darkred 4px;
+  z-index: 1;}
+
+  .crud-post  img{
+    height: 95%;
+    margin: auto;
+  }
+
+
+
+.new-post-container{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 60vw;
+  padding: 16px;
+  background-color: rgba(255, 255, 255,.9);
+  border-radius: 50px;
+  border: dashed 6px black;}
+  .new-post-container label{
+    font-size: 1.5em;
+  }
+  .new-post-container  input[type=file]{
+    opacity: 0;
+    width: 4rem;
+    height: 4rem;
+    background-color: red;
+  }
+
+
+
+.white-layer{
+  background-color: rgba(255, 255, 255,.9);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  z-index: -1;
+}
+
