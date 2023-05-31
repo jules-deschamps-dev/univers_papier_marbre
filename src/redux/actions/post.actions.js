@@ -20,6 +20,7 @@ export const getPosts = () => {
 */
 
 export const getPosts = (categorie) => {
+  console.log(process.env.REACT_APP_API_URL);
   return async (dispatch) => {
     try {
       const res = await axios({
