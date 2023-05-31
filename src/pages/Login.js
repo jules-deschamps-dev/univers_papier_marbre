@@ -23,8 +23,8 @@ const Login = () => {
         document.cookie = "token=" + res.data.token;
       })
       .catch((err) => {
-        console.log(err);
-        //error.innerHTML = err.response.data.error;
+        console.log(err.response.data);
+        error.innerHTML = err.response.data.error;
       });
   };
 
