@@ -23,8 +23,8 @@ const Login = () => {
         document.cookie = "token=" + res.data.token;
       })
       .catch((err) => {
-        console.log(err.response.data);
-        error.innerHTML = err.response.data.error;
+        console.log(err);
+        //error.innerHTML = err.response.data.error;
       });
   };
 
@@ -32,36 +32,17 @@ const Login = () => {
     <div id="connexionBloc">
       <h1> Connexion </h1>
       <div id="errors" className="errors"></div>
-      <form
-        action=""
-        onSubmit={handleLogin}
-        id="login-form"
-        className="flex column"
-      >
+      <form action="" onSubmit={handleLogin} id="login-form" className="flex column">
         <div className="flex row">
           <div className="flex column margin txt-right">
             <label htmlFor="text">
               Pseudo
-              <input
-                type="text"
-                name="pseudo"
-                id="pseudo"
-                onChange={(e) => setPseudo(e.target.value)}
-                value={pseudo}
-                required
-              />{" "}
+              <input type="text" name="pseudo" id="pseudo" onChange={(e) => setPseudo(e.target.value)} value={pseudo} required />{" "}
             </label>
             <br />
             <label htmlFor="text">
               Mot de passe
-              <input
-                type="password"
-                name="password"
-                id="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                required
-              />{" "}
+              <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password} required />{" "}
             </label>
           </div>
         </div>
