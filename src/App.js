@@ -24,12 +24,7 @@ const App = () => {
     const fetchToken = () => {
       axios({
         method: "get",
-        url: `${process.env.REACT_APP_API_URL}token`,
-        data: {
-          token: token,
-        },
-        withCredentials: true,
-        cookie: token,
+        url: `${process.env.REACT_APP_API_URL}token`
       })
         .then((res) => {
           setUid(res.data.id);
