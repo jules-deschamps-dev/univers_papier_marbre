@@ -22,12 +22,6 @@ const App = () => {
         })
         .catch((err) => console.log("No token", err));
     };
-        .then((res) => {
-          setUid(res.data.id);
-          console.log("uid ", res);
-        })
-        .catch((err) => console.log("No token", err));
-    };
 
     fetchToken();
     //if (uid) dispatch(getUser(uid));
