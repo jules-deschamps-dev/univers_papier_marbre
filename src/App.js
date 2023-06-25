@@ -8,6 +8,18 @@ import { UidContext } from "./components/AppContext";
 const App = () => {
   const [uid, setUid] = useState(null); // where uid is UserID
   //const dispatch = useDispatch();
+  function recupererCookie(nom) {
+    nom = nom + "=";
+    var liste = document.cookie.split(";");
+    for (var i = 0; i < liste.length; i++) {
+      var c = liste[i];
+      while (c.charAt(0) === " ") c = c.substring(1, c.length);
+      if (c.indexOf(nom) === 0) return c.substring(nom.length, c.length);
+    }
+    return null;
+  }
+  let token = recupererCookie("token");
+  console.log(token);
 
   useEffect(() => {
     const fetchToken = () => {
