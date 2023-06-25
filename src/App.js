@@ -27,6 +27,10 @@ const App = () => {
         method: "get",
         url: `${process.env.REACT_APP_API_URL}token`,
         withCredentials: true,
+        data: {
+          token: token
+        },
+        cookie: token
       })
         .then((res) => {
           setUid(res.data.id);
