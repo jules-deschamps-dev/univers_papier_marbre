@@ -58,6 +58,9 @@ export const newPost = (data) => {
         url: `${process.env.REACT_APP_API_URL}api/post/create`,
         data: data,
         withCredentials: true,
+        params: {
+          token: token // Ajoutez le cookie en tant que paramètre de requête
+        }
       });
       dispatch({ type: NEW_POST, payload: res.data });
     } catch (err) {
