@@ -41,6 +41,9 @@ export const newEvent = (data) => {
         url: `${process.env.REACT_APP_API_URL}api/events/create`,
         data: data,
         withCredentials: true,
+        params: {
+          token:  recupererCookie("token") // Ajoutez le cookie en tant que paramètre de requête
+        }
       });
       dispatch({ type: NEW_EVENT, payload: res.data });
     } catch (err) {
@@ -74,6 +77,9 @@ export const deleteEvent = (id) => {
         method: "delete",
         url: `${process.env.REACT_APP_API_URL}api/events/` + id,
         withCredentials: true,
+        params: {
+          token:  recupererCookie("token") // Ajoutez le cookie en tant que paramètre de requête
+        }
       });
       dispatch({ type: DELETE_EVENT, payload: res.data });
     } catch (err) {
@@ -81,3 +87,15 @@ export const deleteEvent = (id) => {
     }
   };
 };
+
+function recupererCookie(nom) {
+    nom = nom + "=";
+    var liste = document.cookie.split(";");
+    for (var i = 0; i < liste.length; i++) {
+      var c = liste[i];
+      while (c.charAt(0) === " ") c = c.substring(1, c.length);
+      if (c.indexOf(nom) === 0) return c.substring(nom.length, c.length);
+    }
+    return null;
+  }
+  let token = recupererCookie("token");
