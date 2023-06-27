@@ -98,4 +98,3 @@ function recupererCookie(nom) {
     }
     return null;
   }
-  let token = recupererCookie("token");
