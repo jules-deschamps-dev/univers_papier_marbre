@@ -77,6 +77,9 @@ export const updatePost = (id, title, description, categorie, price) => {
         url: `${process.env.REACT_APP_API_URL}api/post/` + id,
         data: { title, description, price, categorie },
         withCredentials: true,
+        params: {
+          token:  recupererCookie("token") // Ajoutez le cookie en tant que paramètre de requête
+        }
       });
       dispatch({ type: UPDATE_POST, payload: { title, description } });
     } catch (err) {
@@ -92,6 +95,9 @@ export const deletePost = (id) => {
         method: "delete",
         url: `${process.env.REACT_APP_API_URL}api/post/` + id,
         withCredentials: true,
+        params: {
+          token:  recupererCookie("token") // Ajoutez le cookie en tant que paramètre de requête
+        }
       });
       dispatch({ type: DELETE_POST, payload: res.data });
     } catch (err) {
