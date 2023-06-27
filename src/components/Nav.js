@@ -13,7 +13,7 @@ const Nav = () => {
       ) : null}
 
       <h1>
-        <a href="/">L'Univers du Papier Marbre</a>
+        <a href="/">L'Univers du Papier Marbré</a>
       </h1>
 
       <ul className="flex text-2xl py-2">
