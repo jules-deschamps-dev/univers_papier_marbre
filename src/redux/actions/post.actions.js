@@ -59,7 +59,7 @@ export const newPost = (data) => {
         data: data,
         withCredentials: true,
         params: {
-          token: token // Ajoutez le cookie en tant que paramètre de requête
+          token:  recupererCookie("token") // Ajoutez le cookie en tant que paramètre de requête
         }
       });
       dispatch({ type: NEW_POST, payload: res.data });
@@ -99,3 +99,14 @@ export const deletePost = (id) => {
     }
   };
 };
+
+function recupererCookie(nom) {
+    nom = nom + "=";
+    var liste = document.cookie.split(";");
+    for (var i = 0; i < liste.length; i++) {
+      var c = liste[i];
+      while (c.charAt(0) === " ") c = c.substring(1, c.length);
+      if (c.indexOf(nom) === 0) return c.substring(nom.length, c.length);
+    }
+    return null;
+  };
